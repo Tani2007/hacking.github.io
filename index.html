@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   body{
+        color: white;
+        background-color: green;
+        font-size: 30px;
+   }
+</style>
+<body>
+        <!-- Create a hacking simulator which has green background and it shows these messages with random delay of 1 to 7 seconds 
+    
+    Initializing Hacking...
+    Reading your Files...
+    Password files Detected...
+    Sending all passwords and personal files to server...
+    Cleaning up...
+    The three dots must blink so that it looks like a real terminal
+    -->
+
+    <!-- Harry Bhia Method -->
+    <script>
+setInterval(() => {
+    let = document.body.lastElementChild
+    let.innerText.append = "..."
+}, 1000);
+
+
+
+
+
+
+const addItem = async (item) => {
+        await randomDelay();//ye wait karaega jab tak random delay nhi hojata 
+        let div = document.createElement("div");//ye ek div create karega 
+        div.innerHTML = item;//div ke andar ye html insert kardega
+        document.body.append(div)//us div ko body me insert kara diya 
+        
+    }
+    
+const randomDelay = () =>{//ye function delay karaega 
+        return new Promise((resolve,reject)=>{
+            setTimeout(() => {//ye function timeout laega 1-7 sec randomly 
+                resolve()//ye promise laega resolve karne ka 
+            }, 1000+(Math.random()*6000));
+        })
+    }
+
+
+   async function main() {
+
+    setInterval(() => {
+    let last = document.body.lastElementChild;
+    if(last.innerHTML.endsWith("...")){
+        last.innerHTML = last.innerHTML.slice(0,last.innerHTML.length-3)
+    }
+    else{
+        last.innerHTML = last.innerHTML + "."
+    }
+    
+    body.append(dot)
+     }, 1000);
+    let text = ["Initializing Hacking",
+    "Reading your Files",
+    "Password files Detected",
+    "Sending all passwords and personal files to server",
+    "Cleaning up"]//text ka array bana liya taaki ek ek element asaani se access kar skake
+
+    for (const item of text) {//item ek ek element text ka access kaega 
+       await addItem(item)//ab ye add item kya hai ise ham bhi ek async function bana kar define karenge 
+    }
+
+   }
+    //hamne saare text ka array bana liya 
+   
+
+    main()
+
+    //ab random delay ko lane ke liye mai ek promise banaunga 
+    
+    </script>
+</body>
+</html>
